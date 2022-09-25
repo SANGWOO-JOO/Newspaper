@@ -24,5 +24,5 @@ public class News {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")
-    private Member member;
+    private User user;
 }
