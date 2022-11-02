@@ -25,10 +25,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     // 1. 사용자를 load 하는 로직을 짜야한다.
     @Override
     public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
-        // 2. Repository로 이동하자
-        // 3. 사용자는 사용자 이름 또는 이메일로 로그인하여 변수이름을 변경할 수 있다.
-        // findByUsernameOrEmail(usenameOrEmail, usenameOrEmail) 이 메서드는 Optional을 반환하고 Optional에서 호출
-        // 이 사용자 이름으로 주문하거나 이메일이 기존 DB가 아닌 경우 예외를 throw (던진다)한다.
+
 
         //4. 사용자 객체를 스필ㅇ에서 제공하는 사용자 객체로 변환해야 하는 일을 해야한다.
         User user = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail)

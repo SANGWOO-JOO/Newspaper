@@ -12,9 +12,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(
-        name ="posts", uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})}
+        name ="article", uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})}
 )
-public class Post {
+public class Article {
     @Id
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
