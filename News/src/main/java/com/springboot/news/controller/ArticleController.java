@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/posts")
+@RequestMapping("/api/articles")
 public class ArticleController {
     /*
         클래스가 아닌 인터페이스를 주입하고 여기서 느슨한 결합을 하고있다.

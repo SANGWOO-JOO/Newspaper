@@ -77,7 +77,7 @@ public class ArticleServiceImpl implements ArticleService {
         Article article = articleRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
 
         article.setTitle(articleDto.getTitle());
-        article.setDescription(articleDto.getDescription());
+        article.setSection(articleDto.getSection());
         article.setContent(articleDto.getContent());
 
         Article updatedArticle = articleRepository.save(article);
@@ -96,7 +96,7 @@ public class ArticleServiceImpl implements ArticleService {
         ArticleDto articleDto = new ArticleDto();
         articleDto.setId(article.getId());
         articleDto.setTitle(article.getTitle());
-        articleDto.setDescription(article.getDescription());
+        articleDto.setSection(article.getSection());
         articleDto.setContent(article.getContent());
         return articleDto;
     }
@@ -105,7 +105,7 @@ public class ArticleServiceImpl implements ArticleService {
     private Article mapToEntity(ArticleDto articleDto){
         Article article = new Article();
         article.setTitle(articleDto.getTitle());
-        article.setDescription(articleDto.getDescription());
+        article.setSection(articleDto.getSection());
         article.setContent(articleDto.getContent());
         return article;
     }

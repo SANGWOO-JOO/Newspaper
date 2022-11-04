@@ -1,12 +1,13 @@
 package com.springboot.news.payload;
 
-
 import lombok.Data;
 
 @Data
-public class ArticleDto {
+public class CommentDto {
+
     private long id;
-    private String title;
-    private String section;
+
+    private String name;
     private String content;
+
 }
