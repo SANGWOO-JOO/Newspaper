@@ -2,8 +2,8 @@ package com.springboot.news.service.impl;
 
 import com.springboot.news.entity.Article;
 import com.springboot.news.exception.ResourceNotFoundException;
-import com.springboot.news.payload.ArticleDto;
-import com.springboot.news.payload.ArticleResponse;
+import com.springboot.news.dto.ArticleDto;
+import com.springboot.news.dto.ArticleResponse;
 import com.springboot.news.repository.ArticleRepository;
 import com.springboot.news.service.ArticleService;
 import org.springframework.data.domain.Page;

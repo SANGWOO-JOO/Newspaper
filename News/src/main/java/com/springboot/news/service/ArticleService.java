@@ -1,9 +1,7 @@
 package com.springboot.news.service;
 
-import com.springboot.news.payload.ArticleDto;
-import com.springboot.news.payload.ArticleResponse;
-
-import java.util.List;
+import com.springboot.news.dto.ArticleDto;
+import com.springboot.news.dto.ArticleResponse;
 
 
 public interface ArticleService {

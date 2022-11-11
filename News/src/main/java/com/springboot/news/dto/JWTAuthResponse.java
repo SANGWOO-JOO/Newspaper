@@ -1,4 +1,4 @@
-package com.springboot.news.payload;
+package com.springboot.news.dto;
 
 public class JWTAuthResponse {
     private String accessToken;

@@ -3,9 +3,9 @@ package com.springboot.news.controller;
 
 import com.springboot.news.entity.Role;
 import com.springboot.news.entity.User;
-import com.springboot.news.payload.JWTAuthResponse;
-import com.springboot.news.payload.LoginDto;
-import com.springboot.news.payload.SignUpDto;
+import com.springboot.news.dto.JWTAuthResponse;
+import com.springboot.news.dto.LoginDto;
+import com.springboot.news.dto.SignUpDto;
 import com.springboot.news.repository.RoleRepository;
 import com.springboot.news.repository.UserRepository;
 import com.springboot.news.security.JwtTokenProvider;

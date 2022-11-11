@@ -1,16 +1,14 @@
 package com.springboot.news.controller;
 
 
-import com.springboot.news.payload.ArticleDto;
-import com.springboot.news.payload.ArticleResponse;
+import com.springboot.news.dto.ArticleDto;
+import com.springboot.news.dto.ArticleResponse;
 import com.springboot.news.service.ArticleService;
 import com.springboot.news.utils.AppConstants;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/articles")
@@ -64,4 +62,6 @@ public class ArticleController {
 
         return new ResponseEntity<>("Post entity deleted successfully.", HttpStatus.OK);
     }
+
+
 }
