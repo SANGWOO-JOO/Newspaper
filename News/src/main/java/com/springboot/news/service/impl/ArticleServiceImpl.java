@@ -6,6 +6,7 @@ import com.springboot.news.dto.ArticleDto;
 import com.springboot.news.dto.ArticleResponse;
 import com.springboot.news.repository.ArticleRepository;
 import com.springboot.news.service.ArticleService;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -19,9 +20,11 @@ import java.util.stream.Collectors;
 public class ArticleServiceImpl implements ArticleService {
     //Repository 주입 : 사용하기 위해서
     private ArticleRepository articleRepository;
+    private ModelMapper mapper;
 
-    public ArticleServiceImpl(ArticleRepository articleRepository) {
+    public ArticleServiceImpl(ArticleRepository articleRepository, ModelMapper mapper) {
         this.articleRepository = articleRepository;
+        this.mapper =mapper;
     }
 
     // 재정의
@@ -93,20 +96,25 @@ public class ArticleServiceImpl implements ArticleService {
 
     // convert Entity into DTO
     private ArticleDto mapToDTO(Article article){
-        ArticleDto articleDto = new ArticleDto();
-        articleDto.setId(article.getId());
-        articleDto.setTitle(article.getTitle());
-        articleDto.setSection(article.getSection());
-        articleDto.setContent(article.getContent());
+
+        ArticleDto articleDto =mapper.map(article, ArticleDto.class);
+
+//        ArticleDto articleDto = new ArticleDto();
+//        articleDto.setId(article.getId());
+//        articleDto.setTitle(article.getTitle());
+//        articleDto.setSection(article.getSection());
+//        articleDto.setContent(article.getContent());
         return articleDto;
     }
 
     // convert DTO to entity
     private Article mapToEntity(ArticleDto articleDto){
-        Article article = new Article();
-        article.setTitle(articleDto.getTitle());
-        article.setSection(articleDto.getSection());
-        article.setContent(articleDto.getContent());
+        Article article=mapper.map(articleDto, Article.class );
+
+//        Article article = new Article();
+//        article.setTitle(articleDto.getTitle());
+//        article.setSection(articleDto.getSection());
+//        article.setContent(articleDto.getContent());
         return article;
     }
 

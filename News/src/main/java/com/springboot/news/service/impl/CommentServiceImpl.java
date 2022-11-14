@@ -8,6 +8,7 @@ import com.springboot.news.dto.CommentDto;
 import com.springboot.news.repository.ArticleRepository;
 import com.springboot.news.repository.CommentRepository;
 import com.springboot.news.service.CommentService;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +20,12 @@ public class CommentServiceImpl implements CommentService {
 
     private CommentRepository commentRepository;
     private ArticleRepository articleRepository;
+    private ModelMapper mapper;
 
-    public CommentServiceImpl(CommentRepository commentRepository,ArticleRepository articleRepository) {
+    public CommentServiceImpl(CommentRepository commentRepository,ArticleRepository articleRepository, ModelMapper mapper) {
         this.commentRepository = commentRepository;
         this.articleRepository= articleRepository;
+        this.mapper = mapper;
     }
 
     @Override
@@ -105,20 +108,22 @@ public class CommentServiceImpl implements CommentService {
     }
 
     private CommentDto mapToDTO(Comment comment){
+        CommentDto commentDto = mapper.map(comment, CommentDto.class);
 
-        CommentDto commentDto = new CommentDto();
-        commentDto.setId(comment.getId());
-        commentDto.setName(comment.getName());
-        commentDto.setContent(comment.getContent());
+//        CommentDto commentDto = new CommentDto();
+//        commentDto.setId(comment.getId());
+//        commentDto.setName(comment.getName());
+//        commentDto.setContent(comment.getContent());
         return  commentDto;
     }
 
     private Comment mapToEntity(CommentDto commentDto){
+        Comment comment = mapper.map(commentDto , Comment.class);
 
-        Comment comment = new Comment();
-        comment.setId(commentDto.getId());
-        comment.setName(commentDto.getName());
-        comment.setContent(commentDto.getContent());
+//        Comment comment = new Comment();
+//        comment.setId(commentDto.getId());
+//        comment.setName(commentDto.getName());
+//        comment.setContent(commentDto.getContent());
         return  comment;
     }
 }
